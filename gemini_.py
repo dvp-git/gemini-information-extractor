@@ -88,12 +88,13 @@ def stream_data_(response):
 
 # Streamlit Page Configuration
 st.set_page_config(page_title="Document Intelligene Extractor")
-st.header("Gemini AI 🤖")
+st.header("Info-Extractor 🤖")
 st.text("Upload , Instruct ,  Generate!!!")
 
 
 input_ = st.text_input("Input Prompt: ",key="input_")
 uploaded_file = st.file_uploader("Choose a file to upload...", type = ['jpg','jpeg','png'])
+st.markdown("**Note:** Do not upload confidential files.")
 image = ""
 
 if uploaded_file is not None:
