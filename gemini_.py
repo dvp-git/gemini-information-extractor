@@ -1,6 +1,10 @@
+"""A Streamlit app for extracting Image information using latest gemini-vision-pro API """
 # Load the libraries
+
 # from dotenv import load_dotenv
 # load_dotenv()
+
+
 import time
 import streamlit as st
 #import os
@@ -8,10 +12,10 @@ from PIL import Image
 import google.generativeai as genai
 
 
-# Configure the API key
+# Configure the Google API key
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 
-
+# Additional info on the input to generate_content method.
 
 #     ### Input type flexibility
 
@@ -37,7 +41,7 @@ genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 # By enclosing these elements in a list, you are essentially creating an Iterable[glm.Content] object, where each element in the list represents a separate piece of content for the model to process.
 # Therefore, the model might be interpreting this input as:
 # First message: input_ (content type depends on the actual data)
-# Second message: img[0] (likely an image)
+# Second message: img (likely an image)
 # Third message: prompt_input (a text prompt)
 # The model would then generate content based on this sequence of messages. The exact nature of the generated content would depend on the specific model and the provided inputs.
 # Note: This is just one possible interpretation based on the limited information provided. The actual meaning and behavior might vary depending on the specific context and implementation of the model.
@@ -76,23 +80,20 @@ def input_img_bytes(uploaded_file):
         raise FileNotFoundError("File is not Uploaded...")
     
     
- # For streaming data with streamlit
+ # For streaming data with streamlit : Words generate word by word
 def stream_data_(response):
     for word in response.split(" "):
         yield word + " "
         time.sleep(0.02)
 
-
-        
-
-
-# Streamlit Page setup
+# Streamlit Page Configuration
 st.set_page_config(page_title="Document Intelligene Extractor")
 st.header("Gemini AI 🤖")
 st.text("Upload , Instruct ,  Generate!!!")
-input_ = st.text_input("Input Prompt: ",key="input_")
 
-uploaded_file = st.file_uploader("Choose a file to upload...,", type = ['jpg','jpeg','png'])
+
+input_ = st.text_input("Input Prompt: ",key="input_")
+uploaded_file = st.file_uploader("Choose a file to upload...", type = ['jpg','jpeg','png'])
 image = ""
 
 if uploaded_file is not None:
@@ -100,10 +101,9 @@ if uploaded_file is not None:
     st.image(image, caption="Uploaded Image", use_column_width=True)
 
 
-# The input task to perform
-
 submit = st.button("Generate")
 
+# The input task to perform
 system_instruction = """
  You are an expert in analyzing images and answering questions about images.
 """
