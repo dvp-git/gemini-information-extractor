@@ -4,17 +4,21 @@ Install:
 --------
 1. Clone the directory to your local environment
 
-  `git clone https://github.com/dvp-git/gemini-information-extractor.git`
-
+    ```
+    git clone https://github.com/dvp-git/gemini-information-extractor.git
+    ```
 2. Change directory to *gemini-information-extractor* and install the necessary libraries using requirements.txt. Note: Use the latest version of python, preferably >=3.10
 
-   `pip install -r requirements.txt`
+   ```
+   pip install -r requirements.txt
+   ```
+4. Create a folder called *.streamlit* in your project directory and a file called *secrets.toml* inside it. Save your key as *GOOGLE_API_KEY="insert-your-key-here"* inside the toml file . Replace the *'insert-your-key-here'* with your own api key. This key is required to run the inference for generation of content.
+5. Run the streamlit app as :
 
-3. Create a folder called *.streamlit* in your project directory and a file called *secrets.toml* inside it. Save your key as *GOOGLE_API_KEY="insert-your-key-here"* inside the toml file . Replace the *'insert-your-key-here'* with your own api key. This key is required to run the inference for generation of content.
-4. Run the streamlit app as :
-
-   `streamlit run gemini_.py`
-
+   ```
+   streamlit run gemini_.py
+   ```
+   
 For information on getting a key check: https://ai.google.dev/ 
 
 Usage:
