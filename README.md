@@ -1,7 +1,8 @@
-Info-Extractor : A simple image information extractor app built using Google's gemini-vision-pro API and streamlit as front-end.
+## Info-Extractor  
+A simple image information extractor app built using Google's gemini-vision-pro API and streamlit as front-end.
 
 Install:
---------
+---
 1. Clone the directory to your local environment
 
     ```
@@ -22,7 +23,7 @@ Install:
 For information on getting a key check: https://ai.google.dev/ 
 
 Usage:
-------
+---
 **NOTE: Do NOT upload any confidential documents as it may be retained by the system.**
 
 The app is hosted on : https://gemini-information-extractor-9hvvirtqtzkvdt7ypmv9ju.streamlit.app/
@@ -44,7 +45,7 @@ Streamlit is a powerful tool for building frontend in a short amount of time.
 You can create powerful applications using LLM's from google or HuggingFace and even LangChain . Models on HuggingFace can even be downloaded to your local environment , incase you do not wish to send your information to an API. 
 
 Resources :
-------------
+---
 https://ai.google.dev/ 
 https://docs.streamlit.io/get-started/fundamentals/main-concepts
 https://docs.streamlit.io/library/cheatsheet
