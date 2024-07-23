@@ -56,7 +56,15 @@ genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
 # Function for generating the response
 def get_gemini_content( prompt_input, img, input_ ):
     # Instantiate Gemini model
-    model = genai.GenerativeModel('gemini-pro-vision') # or gemini-pro
+    ## CHANGE model name : July 12 2024 : 
+    #To avoid interruptions, we encourage switching to Gemini 1.5 Flash, our next-generation model that is faster and more cost-efficient with advanced vision understanding. Update your code to call 1.5 Flash:
+    # Old
+    # model = genai.GenerativeModel(name='gemini-pro-vision')
+    # New
+    # model = genai.GenerativeModel(name='gemini-1.5-flash’)
+    # Please note this change does not affect the Gemini 1.0 Pro NLP model.
+
+    model = genai.GenerativeModel('gemini-1.5-flash') # or gemini-pro
     # gen_config = genai.GenerationConfig(max_output_tokens=2048,temperature=0.0,top_p=0.4,top_k=1)
     # print(input_)
     # print(prompt_input)
