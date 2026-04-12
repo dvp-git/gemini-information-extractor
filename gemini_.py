@@ -64,7 +64,7 @@ def get_gemini_content( prompt_input, img, input_ ):
     # model = genai.GenerativeModel(name='gemini-1.5-flash’)
     # Please note this change does not affect the Gemini 1.0 Pro NLP model.
 
-    model = genai.GenerativeModel('gemini-2.0-flash') # or gemini-pro
+    model = genai.GenerativeModel('gemini-2.5-flash') # or gemini-pro
     # gen_config = genai.GenerationConfig(max_output_tokens=2048,temperature=0.0,top_p=0.4,top_k=1)
     # print(input_)
     # print(prompt_input)
